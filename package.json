@@ -2,10 +2,7 @@
   "name": "challenge-12",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "npm start"
-  },
+  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hiashley/Employee-Tracker-Challenge-12.git"
@@ -18,7 +15,8 @@
   "homepage": "https://github.com/hiashley/Employee-Tracker-Challenge-12#readme",
   "dependencies": {
     "console.table": "^0.10.0",
-    "inquirer": "^9.1.4",
+    "dotenv": "^16.0.3",
+    "inquirer": "8.2.4",
     "mysql2": "^2.3.3"
   }
 }

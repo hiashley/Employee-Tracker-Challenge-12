@@ -9,7 +9,7 @@ class employeeDB {
     `SELECT employee.id, 
     employee.first_name, 
     employee.last_name,
-    roles.title, 
+    role.title, 
     department.name AS department, 
     role.salary, 
     CONCAT (manager.first_name, " ", manager.last_name) AS manager
@@ -31,9 +31,7 @@ class employeeDB {
   };
   viewAllRoles() {
     return this.connection.promise().query(
-      `SELECT role.id, role.title, role.salary, department.name AS department,
-      FROM role
-      LEFT JOIN department on role.department_id = department.id`
+      `SELECT role.id, role.title, department.name AS department, role.salary FROM role LEFT JOIN department on role.department_id = department.id`
     );
   };
   createRole(role) {
@@ -46,9 +44,9 @@ class employeeDB {
       `SELECT department.id, department.name FROM department`
     );
   };
-  createDepartment(department) {
+  createDepartment(departmentName) {
     return this.connection.promise().query(
-      `INSERT INTO department SET ?`, department
+      `INSERT INTO department SET ?`, departmentName
       );
   };
 };
