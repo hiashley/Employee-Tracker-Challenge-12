@@ -44,9 +44,9 @@ class employeeDB {
       `SELECT department.id, department.name FROM department`
     );
   };
-  createDepartment(departmentName) {
+  createDepartment(department) {
     return this.connection.promise().query(
-      `INSERT INTO department SET ?`, departmentName
+      `INSERT INTO department SET ?`, department
       );
   };
 };

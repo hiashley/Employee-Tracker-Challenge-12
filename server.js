@@ -99,7 +99,7 @@ function changeEmployeeRole() {
                 type: 'list',
                 name: 'roleId',
                 message: 'Which role would you like to assign?',
-                roleChoices
+                choices: roleChoices
               }
             ])
             .then (result => db.updateEmployeeRole(employeeId, result.roleId))
@@ -151,7 +151,6 @@ function addEmployee() {
           })
             .then(result => {
               const roleId = result.roleId;
-              params.push(roleId);
 
               db.viewAllEmployees()
               .then(([rows]) => {
@@ -218,15 +217,15 @@ function addRole() {
 };
 
 function addDepartment() {
-  inquirer([
+  inquirer.prompt([
     {
-      name: 'departmentName',
+      name: 'name',
       message: "Name of department:"
     }
   ])
     .then(result => {
-      const departmentName = result;
-      db.createDepartment(departmentName)
+      const name = result;
+      db.createDepartment(name)
         .then(() => startPrompt());
     })
 };
